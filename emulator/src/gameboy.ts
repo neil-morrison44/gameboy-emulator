@@ -10,10 +10,20 @@ import { Mbc1Cartridge } from "./cartridge/mbc1-cartridge";
 import { CartridgeLoader } from "./cartridge/cartridge-loader";
 import { keyboardManager } from "./input/keyboard-manager";
 
+type GameboyOptions ={
+  sound?: boolean
+}
 export class Gameboy {
-  cpu = new CPU();
-  gpu = new GPU();
-  apu = new APU();
+  cpu : CPU;
+  gpu : GPU;
+  apu : APU | null;
+
+  constructor(opts?: GameboyOptions){
+    this.cpu = new CPU();
+    this.gpu = new GPU();
+    this.apu = (opts && opts?.sound === false) ? null : new APU();
+  }
+
 
   memory = memory;
 
@@ -55,7 +65,8 @@ export class Gameboy {
       while (this.cycles <= GPU.CyclesPerFrame) {
         const cycleForTick = this.cpu.tick();
         this.gpu.tick(cycleForTick);
-        this.apu.tick(cycleForTick);
+        if (this.apu)
+          this.apu.tick(cycleForTick);
         this.cycles += cycleForTick;
       }
 

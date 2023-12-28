@@ -13,7 +13,7 @@ async function onFileChange() {
     // load game
     gameboy.loadGame(rom);
 
-    gameboy.apu.enableSound();
+    gameboy.apu?.enableSound();
 
     const context = document.querySelector('canvas')!.getContext('2d')!;
     gameboy.onFrameFinished((imageData: ImageData) => {
