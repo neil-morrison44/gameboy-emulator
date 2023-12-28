@@ -23,6 +23,8 @@ export class Gameboy {
   controllerManager = controllerManager;
   keyboardManager = keyboardManager;
 
+  stopped = false;
+
   private maxFps = 60;
   private interval = 1000 / this.maxFps;
 
@@ -36,6 +38,10 @@ export class Gameboy {
     lcdControlRegister.value = 0x83; // initial value from official guide
 
     requestAnimationFrame(diff => this.runFrame(diff));
+  }
+
+  stop() {
+    this.stopped = true;
   }
 
   private runFrame(currentTime: number) {
@@ -62,6 +68,7 @@ export class Gameboy {
       this.cycles = this.cycles % GPU.CyclesPerFrame;
     }
 
+    if (this.stopped) return
     requestAnimationFrame(diff => this.runFrame(diff));
   }
 
