@@ -1,5 +1,5 @@
-import { memory } from "@/memory/memory";
-import { CPU } from "@/cpu/cpu";
+import { memory } from "../../memory/memory";
+import { CPU } from "../../cpu/cpu";
 
 export function createJumpOperations(this: CPU) {
   const { registers } = this;

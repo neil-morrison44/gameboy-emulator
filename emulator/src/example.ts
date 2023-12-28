@@ -1,4 +1,4 @@
-import { Gameboy } from '@/gameboy';
+import { Gameboy } from './gameboy';
 
 const gameboy = new Gameboy();
 

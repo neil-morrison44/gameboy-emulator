@@ -1,6 +1,6 @@
-import { memory } from "@/memory/memory";
+import { memory } from "../../../memory/memory";
 import { SingleByteMemoryRegister } from "../../../memory/memory-register";
-import { setBit } from "@/helpers/binary-helpers";
+import { setBit } from "../../../helpers/binary-helpers";
 
 class SoundsOnRegister implements SingleByteMemoryRegister {
   offset = 0xff26;

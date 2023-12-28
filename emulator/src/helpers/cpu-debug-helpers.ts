@@ -1,4 +1,4 @@
-import { CPU } from "@/cpu/cpu";
+import { CPU } from "../cpu/cpu";
 
 export const instructionCache: string[] = [];
 const instructionCacheSize = 200;

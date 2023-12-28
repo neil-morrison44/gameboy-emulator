@@ -1,9 +1,9 @@
 import {
   ObjectAttributeMemoryRegister,
   objectAttributeMemoryRegisters
-} from "@/gpu/registers/object-attribute-memory-registers";
-import { memory } from "@/memory/memory";
-import { dmaTransferRegister } from "@/gpu/registers/dma-transfer-register";
+} from "../gpu/registers/object-attribute-memory-registers";
+import { memory } from "../memory/memory";
+import { dmaTransferRegister } from "../gpu/registers/dma-transfer-register";
 
 class DmaTransferController {
   private static AddressInterval = 0x100;

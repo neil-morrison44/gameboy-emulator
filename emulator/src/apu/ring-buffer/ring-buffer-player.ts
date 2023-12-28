@@ -1,4 +1,4 @@
-import { RingBufferWriter } from "@/apu/ring-buffer/ring-buffer-writer";
+import { RingBufferWriter } from "../../apu/ring-buffer/ring-buffer-writer";
 import ringBufferPlayerClass from './ring-buffer-player.node.js';
 
 // Encapsulates all the logic for the ring buffer on the main thread. ring-buffer-player-node.js is the worklet that

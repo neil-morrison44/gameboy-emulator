@@ -1,20 +1,20 @@
-import { memory } from "@/memory/memory";
-import { EnhancedImageData } from "@/helpers/enhanced-image-data";
-import { asUint8, clearBit, getBit } from "@/helpers/binary-helpers";
+import { memory } from "../memory/memory";
+import { EnhancedImageData } from "../helpers/enhanced-image-data";
+import { asUint8, clearBit, getBit } from "../helpers/binary-helpers";
 
-import { LcdStatusMode } from "@/gpu/registers/lcd-status-mode.enum";
-import { windowYRegister } from "@/gpu/registers/window-y-register";
-import { windowXRegister } from "@/gpu/registers/window-x-register";
-import { lcdStatusRegister } from "@/gpu/registers/lcd-status-register";
-import { lineYRegister } from "@/gpu/registers/line-y-register";
-import { lineYCompareRegister } from "@/gpu/registers/line-y-compare-register";
-import { lcdControlRegister } from "@/gpu/registers/lcd-control-register";
-import { backgroundPaletteRegister } from "@/gpu/registers/background-palette-register";
-import { scrollYRegister } from "@/gpu/registers/scroll-y-register";
-import { scrollXRegister } from "@/gpu/registers/scroll-x-register";
-import { objectAttributeMemoryRegisters } from "@/gpu/registers/object-attribute-memory-registers";
-import { objectPaletteRegisters } from "@/gpu/registers/object-palette-registers";
-import { interruptRequestRegister } from "@/cpu/registers/interrupt-request-register";
+import { LcdStatusMode } from "../gpu/registers/lcd-status-mode.enum";
+import { windowYRegister } from "../gpu/registers/window-y-register";
+import { windowXRegister } from "../gpu/registers/window-x-register";
+import { lcdStatusRegister } from "../gpu/registers/lcd-status-register";
+import { lineYRegister } from "../gpu/registers/line-y-register";
+import { lineYCompareRegister } from "../gpu/registers/line-y-compare-register";
+import { lcdControlRegister } from "../gpu/registers/lcd-control-register";
+import { backgroundPaletteRegister } from "../gpu/registers/background-palette-register";
+import { scrollYRegister } from "../gpu/registers/scroll-y-register";
+import { scrollXRegister } from "../gpu/registers/scroll-x-register";
+import { objectAttributeMemoryRegisters } from "../gpu/registers/object-attribute-memory-registers";
+import { objectPaletteRegisters } from "../gpu/registers/object-palette-registers";
+import { interruptRequestRegister } from "../cpu/registers/interrupt-request-register";
 
 export class GPU {
   static ScreenWidth = 160;
@@ -34,12 +34,36 @@ export class GPU {
 
   private windowLinesDrawn = 0;
 
-  colors = [
+  backgroundPalette = [
     { red: 255, green: 255, blue: 255 },
     { red: 192, green: 192, blue: 192 },
-    { red: 96, green: 96, blue: 96 },
+    { red: 64, green: 64, blue: 64 },
     { red: 0, green: 0, blue: 0 },
   ]
+
+  obj0Palette = [
+    { red: 255, green: 129, blue: 192 },
+    { red: 249, green: 115, blue: 6 },
+    { red: 126, green: 30, blue: 156 },
+    { red: 6, green: 71, blue: 12 },
+  ]
+
+  obj1Palette = [
+    { red: 128, green: 0, blue: 0 },
+    { red: 255, green: 0, blue: 0 },
+    { red: 0, green: 255, blue: 0 },
+    { red: 0, green: 0, blue: 255 },
+  ]
+
+  windowPalette = [
+    { red: 0, green: 128, blue: 128 },
+    { red: 0, green: 255, blue: 255 },
+    { red: 255, green: 0, blue: 255 },
+    { red: 255, green: 255, blue: 0 },
+  ]
+
+  offColour = { red: 255, green: 0, blue: 0 }
+
 
   constructor() {
     this.screen = new EnhancedImageData(GPU.ScreenWidth, GPU.ScreenHeight);
@@ -158,8 +182,7 @@ export class GPU {
       // If background off, write color 0 to background, should probably be
       // refactored to avoid if/else with drawing
       if (!lcdControlRegister.isBackgroundDisplayOn) {
-        const paletteColor = palette[0];
-        const color = this.colors[paletteColor];
+        const color = this.offColour;
         backgroundLineValues.push(0);
         this.screen.setPixel(screenX, lineYRegister.value, color.red, color.green, color.blue);
       } else {
@@ -184,7 +207,7 @@ export class GPU {
         backgroundLineValues.push(paletteIndex);
 
         const paletteColor = palette[paletteIndex];
-        const color = this.colors[paletteColor];
+        const color = this.backgroundPalette[paletteColor];
 
         this.screen.setPixel(screenX, lineYRegister.value, color.red, color.green, color.blue);
       }
@@ -253,7 +276,7 @@ export class GPU {
       const paletteIndex = this.getPixelInTileLine(xPosInTile, lowerByte, higherByte, false);
       windowLineValues.push(paletteIndex);
       const paletteColor = palette[paletteIndex];
-      const color = this.colors[paletteColor];
+      const color = this.windowPalette[paletteColor];
 
       this.screen.setPixel(screenX, lineYRegister.value, color.red, color.green, color.blue);
     }
@@ -330,7 +353,8 @@ export class GPU {
 
         const palette = objectPaletteRegisters[paletteNumber].palette;
         const paletteColor = palette[paletteIndex];
-        const color = this.colors[paletteColor];
+
+        const color = oamRegister.index === 0 ? this.obj1Palette[paletteColor] : this.obj0Palette[paletteColor];
         const screenX = spriteX + xPixelInTile;
 
         const isBackgroundSolid = backgroundLineValues[screenX] !== 0;

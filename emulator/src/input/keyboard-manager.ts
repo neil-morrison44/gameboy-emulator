@@ -1,4 +1,4 @@
-import { input } from "@/input/input";
+import { input } from "../input/input";
 
 export class KeyboardManager {
   down = 'ArrowDown';

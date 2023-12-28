@@ -1,5 +1,7 @@
 # TypeScript GameBoy Emulator
 
+> Forked from https://github.com/roblouie/gameboy-emulator and modified to allow multi-palette colouring. Will display using a high contrast palette until another one is given.
+
 TypeScript GameBoy Emulator is a GameBoy emulator written from scratch in TypeScript
 with zero dependencies.
 

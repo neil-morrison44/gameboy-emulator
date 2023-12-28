@@ -1,11 +1,11 @@
-import { CPU } from "@/cpu/cpu";
-import { getBit } from "@/helpers/binary-helpers";
-import { memory } from "@/memory/memory";
-import { CpuRegister } from "@/cpu/internal-registers/cpu-register";
+import { CPU } from "../../../cpu/cpu";
+import { getBit } from "../../../helpers/binary-helpers";
+import { memory } from "../../../memory/memory";
+import { CpuRegister } from "../../../cpu/internal-registers/cpu-register";
 
 export function getBitSubOperations(cpu: CPU) {
   const { registers } = cpu;
-  
+
   function getBitAndSetFlags(value: number, position: number) {
     const bit = getBit(value, position);
     registers.flags.isResultZero = !bit;

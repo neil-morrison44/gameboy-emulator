@@ -1,5 +1,5 @@
-import { MultiByteMemoryRegister } from "@/memory/memory-register";
-import { memory } from "@/memory/memory";
+import { MultiByteMemoryRegister } from "../../memory/memory-register";
+import { memory } from "../../memory/memory";
 
 export class ObjectAttributeMemoryRegister implements MultiByteMemoryRegister {
   static StartOffset = 0xfe00;
@@ -8,10 +8,12 @@ export class ObjectAttributeMemoryRegister implements MultiByteMemoryRegister {
 
   offset: number;
   name: string;
+  index: number;
 
   constructor(index: number) {
     this.offset = index + ObjectAttributeMemoryRegister.StartOffset;
     this.name = 'OBJ' + index;
+    this.index = index;
   }
 
   getValueAt(index: number) {

@@ -1,10 +1,10 @@
-import { Enveloper } from "@/apu/enveloper";
-import { getBit, setBit } from "@/helpers/binary-helpers";
-import { sound4PolynomialRegister } from "@/apu/registers/sound-4-polynomial-register";
-import { sound4EnvelopeControlRegister } from "@/apu/registers/envelope-control-registers";
-import { sound4ContinuousSelectionRegister } from "@/apu/registers/sound-4-continuous-selection-register";
-import { sound4LengthRegister } from "@/apu/registers/sound-4-length-register";
-import { soundsOnRegister } from "@/apu/registers/sound-control-registers/sounds-on-register";
+import { Enveloper } from "../apu/enveloper";
+import { getBit, setBit } from "../helpers/binary-helpers";
+import { sound4PolynomialRegister } from "../apu/registers/sound-4-polynomial-register";
+import { sound4EnvelopeControlRegister } from "../apu/registers/envelope-control-registers";
+import { sound4ContinuousSelectionRegister } from "../apu/registers/sound-4-continuous-selection-register";
+import { sound4LengthRegister } from "../apu/registers/sound-4-length-register";
+import { soundsOnRegister } from "../apu/registers/sound-control-registers/sounds-on-register";
 
 export class Sound4 {
   private frequencyTimer = 0;

@@ -1,4 +1,4 @@
-import { input } from "@/input/input";
+import { input } from "../input/input";
 
 export enum Xbox360ControllerButtons {
   A,

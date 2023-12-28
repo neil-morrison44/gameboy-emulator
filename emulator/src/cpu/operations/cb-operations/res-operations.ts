@@ -1,7 +1,7 @@
-import { CPU } from "@/cpu/cpu";
-import { clearBit } from "@/helpers/binary-helpers";
-import { memory } from "@/memory/memory";
-import { CpuRegister } from "@/cpu/internal-registers/cpu-register";
+import { CPU } from "../../../cpu/cpu";
+import { clearBit } from "../../../helpers/binary-helpers";
+import { memory } from "../../../memory/memory";
+import { CpuRegister } from "../../../cpu/internal-registers/cpu-register";
 
 export function getResSubOperations(cpu: CPU) {
   const { registers } = cpu;

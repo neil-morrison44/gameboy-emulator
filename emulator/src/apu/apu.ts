@@ -1,9 +1,9 @@
-import { CPU } from "@/cpu/cpu";
-import { Sound1 } from "@/apu/sound-1";
-import { Sound2 } from "@/apu/sound-2";
-import { Sound4 } from "@/apu/sound-4";
-import { Sound3 } from "@/apu/sound-3";
-import { RingBufferPlayer } from "@/apu/ring-buffer/ring-buffer-player";
+import { CPU } from "../cpu/cpu";
+import { Sound1 } from "../apu/sound-1";
+import { Sound2 } from "../apu/sound-2";
+import { Sound4 } from "../apu/sound-4";
+import { Sound3 } from "../apu/sound-3";
+import { RingBufferPlayer } from "../apu/ring-buffer/ring-buffer-player";
 
 export class APU {
   private static FrameSequencerHertz = 512;

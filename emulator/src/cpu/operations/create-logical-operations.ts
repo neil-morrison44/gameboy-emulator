@@ -1,6 +1,6 @@
-import { memory } from "@/memory/memory";
-import { CPU } from "@/cpu/cpu";
-import { CpuRegister } from "@/cpu/internal-registers/cpu-register";
+import { memory } from "../../memory/memory";
+import { CPU } from "../../cpu/cpu";
+import { CpuRegister } from "../../cpu/internal-registers/cpu-register";
 
 export function createLogicalOperations(this: CPU) {
   const { registers } = this;

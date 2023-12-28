@@ -1,6 +1,6 @@
-import { SingleByteMemoryRegister } from "@/memory/memory-register";
-import { memory } from "@/memory/memory";
-import { clearBit, setBit } from "@/helpers/binary-helpers";
+import { SingleByteMemoryRegister } from "../../memory/memory-register";
+import { memory } from "../../memory/memory";
+import { clearBit, setBit } from "../../helpers/binary-helpers";
 
 interface InterruptFlags {
   isVerticalBlanking: boolean;

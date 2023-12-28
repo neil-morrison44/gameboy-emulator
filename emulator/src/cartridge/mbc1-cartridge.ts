@@ -1,5 +1,5 @@
-import { Cartridge } from "@/cartridge/cartridge";
-import { CartridgeType } from "@/cartridge/cartridge-type.enum";
+import { Cartridge } from "../cartridge/cartridge";
+import { CartridgeType } from "../cartridge/cartridge-type.enum";
 
 enum Mbc1WriteType {
   RamGateRegister,

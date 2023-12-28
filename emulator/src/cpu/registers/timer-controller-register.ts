@@ -1,5 +1,5 @@
-import { SingleByteMemoryRegister } from "@/memory/memory-register";
-import { memory } from "@/memory/memory";
+import { SingleByteMemoryRegister } from "../../memory/memory-register";
+import { memory } from "../../memory/memory";
 
 class TimerControllerRegister implements SingleByteMemoryRegister {
   offset = 0xff07;

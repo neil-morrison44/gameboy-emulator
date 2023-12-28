@@ -1,10 +1,10 @@
-import { memory } from "@/memory/memory";
-import { sound3HighOrderFrequencyRegister } from "@/apu/registers/high-order-frequency-registers";
-import { sound3OutputLevelRegister } from "@/apu/registers/sound-3-output-level-register";
-import { sound3LowOrderFrequencyRegister } from "@/apu/registers/low-order-frequency-registers";
-import { soundsOnRegister } from "@/apu/registers/sound-control-registers/sounds-on-register";
-import { getLowerNibble, getUpperNibble } from "@/helpers/binary-helpers";
-import { sound3LengthRegister } from "@/apu/registers/sound-3-length-register";
+import { memory } from "../memory/memory";
+import { sound3HighOrderFrequencyRegister } from "../apu/registers/high-order-frequency-registers";
+import { sound3OutputLevelRegister } from "../apu/registers/sound-3-output-level-register";
+import { sound3LowOrderFrequencyRegister } from "../apu/registers/low-order-frequency-registers";
+import { soundsOnRegister } from "../apu/registers/sound-control-registers/sounds-on-register";
+import { getLowerNibble, getUpperNibble } from "../helpers/binary-helpers";
+import { sound3LengthRegister } from "../apu/registers/sound-3-length-register";
 
 
 export class Sound3 {

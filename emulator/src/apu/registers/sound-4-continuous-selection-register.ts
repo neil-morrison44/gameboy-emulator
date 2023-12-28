@@ -1,6 +1,6 @@
-import { memory } from "@/memory/memory";
-import { SingleByteMemoryRegister } from "@/memory/memory-register";
-import { setBit } from "@/helpers/binary-helpers";
+import { memory } from "../../memory/memory";
+import { SingleByteMemoryRegister } from "../../memory/memory-register";
+import { setBit } from "../../helpers/binary-helpers";
 
 
 export class Sound4ContinuousSelectionRegister implements SingleByteMemoryRegister {
@@ -26,4 +26,3 @@ export class Sound4ContinuousSelectionRegister implements SingleByteMemoryRegist
 }
 
 export const sound4ContinuousSelectionRegister = new Sound4ContinuousSelectionRegister();
-

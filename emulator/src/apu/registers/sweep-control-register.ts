@@ -1,4 +1,4 @@
-import { memory } from "@/memory/memory";
+import { memory } from "../../memory/memory";
 import { SingleByteMemoryRegister } from "../../memory/memory-register";
 
 
@@ -19,7 +19,7 @@ export class SweepControlRegister implements SingleByteMemoryRegister {
   }
 
   get isSweepIncrease() {
-    return ((this.value >> 3) & 0b1) === 0b1; 
+    return ((this.value >> 3) & 0b1) === 0b1;
   }
 
   get sweepAmount() {

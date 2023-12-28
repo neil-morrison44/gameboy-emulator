@@ -1,5 +1,5 @@
-import { Cartridge } from "@/cartridge/cartridge";
-import { CartridgeType } from "@/cartridge/cartridge-type.enum";
+import { Cartridge } from "../cartridge/cartridge";
+import { CartridgeType } from "../cartridge/cartridge-type.enum";
 
 export class Mbc3Cartridge extends Cartridge {
   private romBank = 0b0;

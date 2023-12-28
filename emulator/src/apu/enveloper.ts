@@ -1,4 +1,4 @@
-import { EnvelopeControlRegister } from "@/apu/registers/envelope-control-registers";
+import { EnvelopeControlRegister } from "../apu/registers/envelope-control-registers";
 
 export class Enveloper {
   private envelopePeriodTimer = 0;

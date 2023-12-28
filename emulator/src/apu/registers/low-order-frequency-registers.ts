@@ -1,4 +1,4 @@
-import { memory } from "@/memory/memory";
+import { memory } from "../../memory/memory";
 import { SingleByteMemoryRegister } from "../../memory/memory-register";
 
 

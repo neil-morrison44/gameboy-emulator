@@ -1,6 +1,6 @@
-import { SingleByteMemoryRegister } from "@/memory/memory-register";
-import { memory } from "@/memory/memory";
-import { getBit } from "@/helpers/binary-helpers";
+import { SingleByteMemoryRegister } from "../../memory/memory-register";
+import { memory } from "../../memory/memory";
+import { getBit } from "../../helpers/binary-helpers";
 
 class LcdControlRegister implements SingleByteMemoryRegister {
   offset = 0xff40;

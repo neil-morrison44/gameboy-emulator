@@ -1,7 +1,7 @@
-import { CpuRegister } from "@/cpu/internal-registers/cpu-register";
+import { CpuRegister } from "../../cpu/internal-registers/cpu-register";
 
 export class CpuFlagRegister extends CpuRegister{
-  
+
   get Z() {
     return (this.value >> 7);
   }

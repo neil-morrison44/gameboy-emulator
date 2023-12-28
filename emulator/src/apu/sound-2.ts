@@ -1,10 +1,10 @@
-import { memory } from "@/memory/memory";
-import { Enveloper } from "@/apu/enveloper";
-import { sound2EnvelopeControlRegister } from "@/apu/registers/envelope-control-registers";
-import { sound2HighOrderFrequencyRegister } from "@/apu/registers/high-order-frequency-registers";
-import { sound2LengthAndDutyCycleRegister } from "@/apu/registers/length-and-duty-cycle-registers";
-import { sound2LowOrderFrequencyRegister } from "@/apu/registers/low-order-frequency-registers";
-import { soundsOnRegister } from "@/apu/registers/sound-control-registers/sounds-on-register";
+import { memory } from "../memory/memory";
+import { Enveloper } from "../apu/enveloper";
+import { sound2EnvelopeControlRegister } from "../apu/registers/envelope-control-registers";
+import { sound2HighOrderFrequencyRegister } from "../apu/registers/high-order-frequency-registers";
+import { sound2LengthAndDutyCycleRegister } from "../apu/registers/length-and-duty-cycle-registers";
+import { sound2LowOrderFrequencyRegister } from "../apu/registers/low-order-frequency-registers";
+import { soundsOnRegister } from "../apu/registers/sound-control-registers/sounds-on-register";
 
 export class Sound2 {
   private dutyCycles = [

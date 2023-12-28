@@ -1,10 +1,10 @@
-import "@/gameboy-button/gameboy-button";
-import "@/gameboy-d-pad/gameboy-d-pad";
-import "@/gameboy-speaker/gameboy-speaker";
-import "@/gameboy-top-menu/gameboy-top-menu";
-import "@/gameboy-screen/gameboy-screen";
-import { gameboy } from "@/gameboy-instance";
-import { GameboySpeaker } from "@/gameboy-speaker/gameboy-speaker";
+import "../../gameboy-button/gameboy-button";
+import "../../gameboy-d-pad/gameboy-d-pad";
+import "../../gameboy-speaker/gameboy-speaker";
+import "../../gameboy-top-menu/gameboy-top-menu";
+import "../../gameboy-screen/gameboy-screen";
+import { gameboy } from "../../gameboy-instance";
+import { GameboySpeaker } from "../../gameboy-speaker/gameboy-speaker";
 import localforage from "localforage";
 
 let scaledDrawCanvas: any;

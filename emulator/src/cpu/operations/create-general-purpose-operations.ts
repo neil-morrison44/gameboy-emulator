@@ -1,4 +1,4 @@
-import { CPU } from "@/cpu/cpu";
+import { CPU } from "../../cpu/cpu";
 
 export function createGeneralPurposeOperations(this: CPU) {
   const { registers } = this;

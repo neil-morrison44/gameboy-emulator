@@ -1,5 +1,5 @@
-import { memory } from "@/memory/memory";
-import { SingleByteMemoryRegister } from "@/memory/memory-register";
+import { memory } from "../../memory/memory";
+import { SingleByteMemoryRegister } from "../../memory/memory-register";
 
 export class Sound3LengthRegister implements SingleByteMemoryRegister {
   offset = 0xff1b;
